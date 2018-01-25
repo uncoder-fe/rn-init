@@ -20,6 +20,7 @@ npm link
 create-ax-rn-app init demoProject
 ```
 # 项目目录
+```
 .
 ├── README.md
 ├── build
@@ -42,3 +43,4 @@ create-ax-rn-app init demoProject
         ├── reducers
         ├── router
         └── store
+```
