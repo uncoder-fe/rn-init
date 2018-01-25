@@ -11,8 +11,11 @@
 ```bash
 # 监控
 yarn run start
-# 测试
+# 本目录测试
 yarn run test
 # 打包
 yarn run build
+# 全局测试
+npm link
+create-ax-rn-app init demoProject
 ```
