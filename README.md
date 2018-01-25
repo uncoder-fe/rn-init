@@ -19,3 +19,26 @@ yarn run build
 npm link
 create-ax-rn-app init demoProject
 ```
+# 项目目录
+.
+├── README.md
+├── build
+│   ├── bin
+│   │   ├── index.js
+│   │   └── index.js.map
+│   └── pkgs.json
+├── package.json
+├── src
+│   ├── bin
+│   │   └── index.js
+│   └── pkgs.json
+├── taskfile.js
+└── template
+    ├── App.js
+    └── src
+        ├── assets
+        ├── components
+        ├── page
+        ├── reducers
+        ├── router
+        └── store
