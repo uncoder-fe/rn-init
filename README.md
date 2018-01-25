@@ -9,11 +9,11 @@
 # 命令
 
 ```bash
-# 监控
+# 文件修改监控
 yarn run start
 # 本目录测试
 yarn run test
-# 打包
+# 打包成品
 yarn run build
 # 全局测试
 npm link
