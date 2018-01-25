@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { AsyncStorage, Dimensions, Animated, Easing } from 'react-native';
+import { AsyncStorage, Dimensions, Animated, Easing, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 // 页面引入
-import LoginScreen from './page/login'; //登陆
-import Ad from './page/ad'; //加载页
-import Spinner from './components/spinner'; // loading
+import LoginScreen from '../page/login'; //登陆
+import Ad from '../page/ad'; //加载页
+import Spinner from '../components/spinner'; // loading
 
 // 页面路由
 const AppRouteConfigs = {
@@ -36,10 +36,6 @@ const createStackNavigator = user => {
     )
 };
 
-@connect(store => ({
-    init: store.init,
-    user: store.user
-}))
 class Router extends Component {
     constructor(props) {
         super(props);
@@ -79,4 +75,7 @@ class Router extends Component {
         );
     }
 }
-export default Router;
+export default connect(store => ({
+    init: store.init,
+    user: store.user
+}))(Router);

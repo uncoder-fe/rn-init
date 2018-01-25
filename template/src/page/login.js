@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import { Image, Text, View, AsyncStorage, TouchableOpacity, StyleSheet, Dimensions, StatusBar } from 'react-native';
+import { Image, Text, View, AsyncStorage, TouchableOpacity, StyleSheet, Dimensions, StatusBar, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
 const { width, height } = Dimensions.get("window");
-
-@connect((store) => {
-	return {
-		spinner: store.spinner,
-		user: store.user
-	}
-})
 
 class Login extends Component {
 	constructor(props) {
@@ -30,7 +23,7 @@ class Login extends Component {
 					barStyle="light-content"
 				/>
 				<View style={styles.input}>
-					<Input
+					<TextInput
 						ref="user"
 						value={this.state.user}
 						placeholder="user"
@@ -40,7 +33,7 @@ class Login extends Component {
 					/>
 				</View>
 				<View style={styles.input}>
-					<Input
+					<TextInput
 						ref="password"
 						value={this.state.password}
 						placeholder="password"
@@ -54,6 +47,11 @@ class Login extends Component {
 	}
 }
 const styles = StyleSheet.create({
-	
+
 })
-export default Login
+export default connect((store) => {
+	return {
+		spinner: store.spinner,
+		user: store.user
+	}
+})(Login)

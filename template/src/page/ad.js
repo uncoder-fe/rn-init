@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, StatusBar } from 'react-native';
-import launchImg from '../asset/image/launcher.png';
+import launchImg from '../assets/image/launcher.png';
 const styles = StyleSheet.create({
     viewport: {
         height: '100%',

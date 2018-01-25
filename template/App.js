@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import createStore from './store';
-import Router from './router';
+import createStore from './src/store';
+import Router from './src/router';
 
 const store = createStore();
 // 设置全局store
