@@ -17,7 +17,7 @@ yarn run test
 yarn run build
 # 全局测试
 npm link
-create-ax-rn-app init demoProject
+create-ax-rn-app init AwesomeProject
 ```
 # 项目目录
 ```
@@ -32,9 +32,9 @@ create-ax-rn-app init demoProject
 ├── src
 │   ├── bin
 │   │   └── index.js
-│   └── pkgs.json
+│   └── pkgs.json //自定义依赖项
 ├── taskfile.js
-└── template
+└── template      //自定义模版
     ├── App.js
     └── src
         ├── assets
