@@ -2,9 +2,13 @@
  * @Author: uncoder
  * @Date: 2018-01-29 16:11:07
  * @Last Modified by: uncoder
- * @Last Modified time: 2018-01-29 17:46:04
+ * @Last Modified time: 2018-01-29 17:55:59
  */
 import axios from 'axios';
+// 获取token
+const getToken = () => {
+	return window.localStorage.getItem('token') || '';
+};
 // 根据自定义配置创建实例
 const xhr = axios.create({
 	baseURL: `/`,
@@ -18,6 +22,8 @@ const xhr = axios.create({
 // request拦截
 xhr.interceptors.request.use(
 	function(config) {
+		const token = getToken();
+		config.headers.token = token;
 		// Do something before request is sent
 		return config;
 	},
@@ -37,12 +43,8 @@ xhr.interceptors.response.use(
 		return Promise.reject(error);
 	},
 );
-// 获取token
-const getToken = () => {
-	return window.localStorage.getItem('token') || '';
-};
 // 发起请求
-const request = config => {
+function request(config) {
 	const res = xhr
 		.request(config)
 		.then(json => {
@@ -52,7 +54,7 @@ const request = config => {
 			console.log(error);
 		});
 	return res;
-};
+}
 export function get(url, params, headers) {
 	const p = params || {};
 	const h = headers || {};
@@ -60,7 +62,6 @@ export function get(url, params, headers) {
 		url,
 		params: { ...p },
 		headers: {
-			token: getToken(),
 			...h,
 		},
 	};
@@ -73,12 +74,10 @@ export function post(url, data, headers) {
 		url,
 		data: { ...p },
 		headers: {
-			token: getToken(),
 			...h,
 		},
 	};
 	request(config);
 }
 
-const Http = { get, post };
-export default Http;
+export default { get, post };
