@@ -2,7 +2,7 @@
  * @Author: uncoder
  * @Date: 2018-01-29 16:11:07
  * @Last Modified by: uncoder
- * @Last Modified time: 2018-01-29 17:55:59
+ * @Last Modified time: 2018-01-31 10:36:56
  */
 import axios from 'axios';
 // 获取token
@@ -21,13 +21,13 @@ const xhr = axios.create({
 });
 // request拦截
 xhr.interceptors.request.use(
-	function(config) {
+	config => {
+		// Do something before request is sent
 		const token = getToken();
 		config.headers.token = token;
-		// Do something before request is sent
 		return config;
 	},
-	function(error) {
+	error => {
 		// Do something with request error
 		return Promise.reject(error);
 	},
