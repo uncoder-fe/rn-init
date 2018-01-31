@@ -6,4 +6,6 @@ module.exports = {
     printWidth: 80,
     Tabs: true,
     tabWidth: 4,
+    requirePragma: true,
+    insertPragma: true,
 };
